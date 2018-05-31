@@ -1,2 +1,2 @@
-# vagrant_ubuntu
-Vagrant box for Perl development on Ubuntu 14.04
+# vagrant_python
+Vagrant box for Python on Ubuntu
