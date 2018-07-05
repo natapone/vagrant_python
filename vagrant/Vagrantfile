@@ -2,13 +2,19 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(2) do |config|
-    config.vm.box = "ubuntu/trusty64"
+    config.vm.box = "ubuntu/xenial64"
 
-    config.vm.network "forwarded_port", guest: 80, host: 8888
-    config.vm.network "private_network", ip: "33.33.33.1"
+    config.vm.network "forwarded_port", guest: 8888, host: 8888
+    config.vm.network "forwarded_port", guest: 80, host: 8080
+    config.vm.network "private_network", ip: "33.33.33.2"
 
     config.vm.synced_folder "../project", "/home/vagrant/project"
     config.vm.provision :shell, path: "script/bootstrap.sh"
     config.vm.provision :shell, :inline => "sed -i 's/us.archive/de.archive/g' /etc/apt/sources.list"
+
+    config.vm.provider "virtualbox" do |v|
+        v.memory = 2048
+        v.cpus = 2
+    end
 
 end
