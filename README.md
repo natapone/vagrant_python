@@ -4,9 +4,10 @@ Vagrant box for Python on Ubuntu
 # Deploy your Python3 Virtual Environment
 $ pip3 install virtualenv --user
 
+
 # install Freqtrade
 # https://www.freqtrade.io/en/stable/installation/#script-installation
-$ cd ~
+$ cd project/
 $ git clone https://github.com/freqtrade/freqtrade.git
 $ cd freqtrade
 $ git checkout stable
@@ -18,6 +19,7 @@ Do not set virtualenv in share folder, pip will fail !!!!
 1. Duplicate setup.sh to setup_vagrant.sh
 2. Replace venv path from .env/bin to ../../freqtrade_env/bin
 
+$ python3 -m virtualenv ../../freqtrade_env
 $ chmod +x setup_vagrant.sh
 $ ./setup_vagrant.sh -i
 $ source ../../freqtrade_env/bin/activate;
